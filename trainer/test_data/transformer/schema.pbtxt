@@ -1,0 +1,101 @@
+feature {
+  name: "id_col"
+  value_count {
+    min: 1
+    max: 1
+  }
+  type: INT
+  presence {
+    min_fraction: 1.0
+    min_count: 1
+  }
+}
+feature {
+  name: "cat_col1"
+  value_count {
+    min: 1
+    max: 1
+  }
+  type: BYTES
+  domain: "cat_col1"
+  presence {
+    min_fraction: 1.0
+    min_count: 1
+  }
+}
+feature {
+  name: "cat_col2"
+  value_count {
+    min: 1
+    max: 1
+  }
+  type: BYTES
+  domain: "cat_col2"
+  presence {
+    min_fraction: 1.0
+    min_count: 1
+  }
+}
+feature {
+  name: "num_col1"
+  value_count {
+    min: 1
+    max: 1
+  }
+  type: FLOAT
+  presence {
+    min_count: 1
+  }
+}
+feature {
+  name: "num_col3"
+  value_count {
+    min: 1
+    max: 1
+  }
+  type: INT
+  presence {
+    min_fraction: 1.0
+    min_count: 1
+  }
+}
+feature {
+  name: "num_col2"
+  value_count {
+    min: 1
+    max: 1
+  }
+  type: INT
+  presence {
+    min_fraction: 1.0
+    min_count: 1
+  }
+}
+feature {
+  name: "num_col4"
+  value_count {
+    min: 1
+    max: 1
+  }
+  type: INT
+  bool_domain {
+  }
+  presence {
+    min_fraction: 1.0
+    min_count: 1
+  }
+}
+string_domain {
+  name: "cat_col1"
+  value: "term1"
+  value: "term2"
+  value: "term3"
+  value: "term4"
+  value: "term5"
+  value: "term6"
+}
+string_domain {
+  name: "cat_col2"
+  value: "category1"
+  value: "category2"
+}
