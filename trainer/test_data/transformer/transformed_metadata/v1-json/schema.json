@@ -1,0 +1,113 @@
+{
+  "feature": [
+    {
+      "domain": {
+        "ints": {
+          "isCategorical": false,
+          "max": "9223372036854775807",
+          "min": "-9223372036854775808",
+          "vocabularyFile": ""
+        }
+      },
+      "name": "id_col",
+      "parsingOptions": {
+        "tfOptions": {
+          "varLenFeature": {}
+        }
+      },
+      "type": "INT",
+      "valueCount": {}
+    },
+    {
+      "domain": {
+        "ints": {
+          "isCategorical": false,
+          "max": "9223372036854775807",
+          "min": "-9223372036854775808",
+          "vocabularyFile": ""
+        }
+      },
+      "fixedShape": {
+        "axis": []
+      },
+      "name": "num_col4",
+      "parsingOptions": {
+        "tfOptions": {
+          "fixedLenFeature": {}
+        }
+      },
+      "type": "INT"
+    },
+    {
+      "domain": {
+        "ints": {
+          "isCategorical": true,
+          "max": "10",
+          "min": "0",
+          "vocabularyFile": ""
+        }
+      },
+      "fixedShape": {
+        "axis": []
+      },
+      "name": "tr_cat_col1",
+      "parsingOptions": {
+        "tfOptions": {
+          "fixedLenFeature": {}
+        }
+      },
+      "type": "INT"
+    },
+    {
+      "domain": {
+        "ints": {
+          "isCategorical": true,
+          "max": "6",
+          "min": "0",
+          "vocabularyFile": ""
+        }
+      },
+      "fixedShape": {
+        "axis": []
+      },
+      "name": "tr_cat_col2",
+      "parsingOptions": {
+        "tfOptions": {
+          "fixedLenFeature": {}
+        }
+      },
+      "type": "INT"
+    },
+    {
+      "domain": {
+        "floats": {}
+      },
+      "fixedShape": {
+        "axis": []
+      },
+      "name": "tr_num_col1",
+      "parsingOptions": {
+        "tfOptions": {
+          "fixedLenFeature": {}
+        }
+      },
+      "type": "FLOAT"
+    },
+    {
+      "domain": {
+        "floats": {}
+      },
+      "fixedShape": {
+        "axis": []
+      },
+      "name": "tr_num_col2",
+      "parsingOptions": {
+        "tfOptions": {
+          "fixedLenFeature": {}
+        }
+      },
+      "type": "FLOAT"
+    }
+  ],
+  "sparseFeature": []
+}

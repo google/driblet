@@ -1,0 +1,66 @@
+# Configuration for setup_cloud.py
+
+
+#####################################
+# Local environment config
+#####################################
+
+local_config:
+  # Directory where trained model has been saved
+  model_dir: ~/sample_output/model/export/driblet
+  # Full path to schema.pbtxt generated during data transformation
+  schema_file: ~/sample_output/transformer/schema.pbtxt
+  # Directory containing Airlfow dags and Dataflow transformer module
+  workflow_dir: workflow
+  # This data used to create sample BigQuery table to test model prediction
+  sample_data: workflow/dags/tasks/preprocess/test_data/data_predict.csv
+
+
+#####################################
+# Google Cloud environment config
+#####################################
+
+# Service scope needed to request to access Google APIs
+service_scopes:
+  - https://www.googleapis.com/auth/cloud-platform
+service_url: https://serviceusage.googleapis.com/v1/projects
+# List of required Cloud APIs to enable
+required_apis:
+  - cloudapis.googleapis.com
+  - storage-component.googleapis.com
+  - compute.googleapis.com
+  - bigquery-json.googleapis.com
+  - composer.googleapis.com
+  - ml.googleapis.com
+  - dataflow.googleapis.com
+  - monitoring.googleapis.com
+  - storage-api.googleapis.com
+  - pubsub.googleapis.com
+  - datastore.googleapis.com
+  - cloudresourcemanager.googleapis.com
+# Required packages for Cloud Dataflow
+required_py_packages:
+  tensorflow-data-validation: ==0.11.0
+# A prefix to be used to setup the Cloud environment
+env_prefix: driblet
+# A location where to run Compute Engine resources
+location: asia-northeast1 # Tokyo
+# Default storage class for a bucket
+storage_class: REGIONAL
+# A region where to run compute engine resources
+region: asia-east1
+# Machine type to run Cloud Composer on
+machine_type: n1-standard-1
+# Name of the model to deploy on Cloud AI Platform
+# It should start with a letter and contain only letters, numbers and underscores
+model_name: driblet_model
+# Version of the model to deploy on Cloud ML Engine
+model_version: v1
+# Tensorflow runtime version to use for this deployment
+runtime_version: '1.8'
+# BigQuery dataset name to store sample table
+dataset_name: sample_dataset
+# Expiry time (ms) for sample BigQuery dataset
+dataset_expiration: 86400000 # One day
+# BigQuery table name to store sample data
+table_name: sample_table
