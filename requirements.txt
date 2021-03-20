@@ -65,7 +65,7 @@ ipython==5.8.0
 ipython-genutils==0.2.0
 iso8601==0.1.12
 itsdangerous==1.1.0
-Jinja2==2.10
+Jinja2==2.11.3
 json-merge-patch==0.2
 Keras-Applications==1.0.7
 Keras-Preprocessing==1.0.9
