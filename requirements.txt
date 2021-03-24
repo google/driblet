@@ -108,7 +108,7 @@ pytzdata==2019.1
 PyVCF==0.6.8
 PyYAML==3.13
 requests==2.22.0
-rsa==4.0
+rsa==4.1
 scandir==1.10.0
 setproctitle==1.1.10
 simplegeneric==0.8.1
