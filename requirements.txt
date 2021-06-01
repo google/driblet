@@ -131,7 +131,7 @@ tzlocal==1.5.1
 unicodecsv==0.14.1
 Unidecode==1.0.23
 uritemplate==3.0.0
-urllib3==1.25.3
+urllib3==1.26.5
 wcwidth==0.1.7
 Werkzeug==0.15.4
 WTForms==2.2.1
