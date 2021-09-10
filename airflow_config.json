@@ -1,0 +1,70 @@
+{
+    "base_config": {
+        "schedule_interval": "@once",
+        "train_mode": "False"
+    },
+    "gcp_config": {
+        "project_id": "project",
+        "service_account_email": "example@project.iam.gserviceaccount.com",
+        "storage_bucket": "gs://my-bucket",
+        "bigquery_dataset": "mydataset"
+    },
+    "mwp_session_config": {
+        "predictionFactName": "hits.page.pagePath",
+        "predictionFactValues": "/www.example.com/page1/page2",
+        "sql_prediction": "SELECT * FROM `project.dataset.ga_sessions_*` WHERE _table_suffix = '20200105';",
+        "sql_training": "SELECT * FROM `project.dataset.ga_sessions_*` WHERE _table_suffix >= '20200105';",
+        "maximumLookaheadTimeInSeconds": "1209600",
+        "minimumLookaheadTimeInSeconds": "86400",
+        "slideTimeInSeconds": "86400",
+        "snapshotEndDate": "15/12/2019",
+        "snapshotStartDate": "15/09/2019",
+        "stopOnFirstPositiveLabel": "False"
+    },
+      "dataset_split_config": {
+        "input_table": "project.dataset.features",
+        "eval_dest_table": "project.dataset.eval",
+        "test_dest_table": "project.dataset.test",
+        "train_dest_table": "project.dataset.train",
+        "id_column": "userId"
+    },
+    "transform_config": {
+        "input_table": "project.dataset.features",
+        "features_config": "configs/features_config.cfg",
+        "output_dir": "transformed_data",
+        "transform_dir": "transform_model"
+    },
+    "training_config": {
+        "estimator_type": "CombinedClassifier",
+        "eval_batch_size": "100",
+        "eval_steps": "100",
+        "first_layer_size": "10",
+        "job_dir": "training_jobs",
+        "model_name": "mymodel",
+        "num_epochs": "2",
+        "num_layers": "3",
+        "regenerate_data": "True",
+        "train_batch_size": "200",
+        "train_steps": "1000"
+    },
+    "model_deploy_config": {
+      "model_name": "model_name",
+      "deployment_uri": "gs://path/to/model"
+    },
+    "prediction_config": {
+        "input_table": "project.dataset.features",
+        "model_name": "example_model",
+        "model_version": "v1",
+        "output_dir": "prediction_results"
+    },
+    "storage_to_ads_config": {
+        "client_customer_id": "111-222-3333",
+        "client_id": "example-id.apps.googleusercontent.com",
+        "client_secret": "********",
+        "conversion_name": "ads_conversion_name",
+        "custom_conversion_value": "1000",
+        "developer_token": "********",
+        "path_prefix": "prediction_results",
+        "refresh_token": "1/aaabbb222"
+    }
+}
