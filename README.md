@@ -1,5 +1,7 @@
 # Driblet - ML pipeline orchestration framework
 
+**This is not an official Google product.**
+
 *   [Overview](#overview)
 *   [Step 1: Local environment setup](#step-1-local-environment-setup)
 *   [Step 2: Cloud environment setup](#step-2-cloud-environment-setup)
@@ -21,7 +23,7 @@ Setup and deployment involves following four steps.
 3.  Clone Driblet repository.
 
     ```
-    git clone https://cse.googlesource.com/solutions/driblet
+    git clone https://github.com/google/driblet.git
     ```
 
 ## Step 2: Create service account
