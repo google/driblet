@@ -22,11 +22,11 @@
 import setuptools
 
 _REQUIRED_PACKAGES = [
-    'gast==0.2.2',
-    'tensorflow==2.4.1',
-    'tensorflow-data-validation==0.13.0',
-    'tensorflow-metadata==0.13.0',
-    'tensorflow-transform==0.13.0',
+    'gast>=0.2.2',
+    'tensorflow',
+    'tensorflow-data-validation',
+    'tensorflow-metadata',
+    'tensorflow-transform',
 ]
 
 _MODEL = 'model'

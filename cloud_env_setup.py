@@ -48,8 +48,8 @@ _COMPOSER_PYPI_PACKAGES = {
 }
 _TENSORFLOW_MODULES = {
     'apache-beam': '[gcp]==2.15.0',
-    'tensorflow': '==1.14.0',
-    'tensorflow-data-validation': '==0.13.0'
+    'tensorflow': '>=2.4.0,<3.0',
+    'tensorflow-data-validation': '>=0.13.0,<2.0'
 }
 # Composer environment variables.
 _COMPOSER_ENV_VARIABLES = {'PYTHONPATH': '/home/airflow/gcs/plugins'}
@@ -169,7 +169,7 @@ def copy_dags_to_gcs(cloud_composer_utils: cloud_composer.CloudComposerUtils,
   """
   # Copy DAGs and dependencies.
   dags_folder_url = cloud_composer_utils.get_dags_folder(composer_env_name)
-  dags_bucket = os.path.dirname(dags_folder_url)
+  dags_bucket = os.path.join(os.path.dirname(dags_folder_url), 'dags')
   cloud_storage_utils.upload_directory_to_url(dags_folder, dags_bucket)
 
 

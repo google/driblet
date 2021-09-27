@@ -104,7 +104,7 @@ class CloudEnvSetupTest(unittest.TestCase):
                                      self.composer_env_name, dags_folder)
 
     mock_upload_directory.assert_called_once_with(dags_folder,
-                                                  'gcs_dags_folder')
+                                                  'gcs_dags_folder/dags')
 
   def test_copy_model_to_gcs_copies_saved_model_and_config_file_to_gcs(self):
     mock_upload_directory = (
