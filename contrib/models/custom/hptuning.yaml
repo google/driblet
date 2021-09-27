@@ -1,0 +1,98 @@
+# Copyright 2021 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Hyperparameter tuning options.
+# Ref: https://cloud.google.com/ml-engine/docs/hyperparameter-tuning-overview
+#
+# Run from copybara generated root directory:
+#
+# MODEL_NAME=my_model
+# BUCKET_NAME=gs://my_bucket
+#
+# gcloud ai-platform  jobs submit training $MODEL_NAME \
+#  --runtime-version 1.14 \
+#  --python-version 3.5 \
+#  --module-name model.trainer \
+#  --package-path model \
+#  --job-dir $BUCKET_NAME/$MODEL_NAME \
+#  --region us-central1 \
+#  --stream-logs \
+#  --config model/hptuning.yaml \
+#  -- \
+#  --job_dir $BUCKET_NAME/$MODEL_NAME \
+#  --transform_dir $BUCKET_NAME/dataflow/transform \
+#  --train_data $BUCKET_NAME/dataflow/input/train* \
+#  --eval_data $BUCKET_NAME/dataflow/input/eval*  \
+#  --features_config_file  $BUCKET_NAME/configs_all.cfg \
+#  --schema_file $BUCKET_NAME/dataflow/transform/schema.pbtxt \
+#  --model_name $MODEL_NAME \
+#  --estimator_type CombinedClassifier
+
+trainingInput:
+  hyperparameters:
+    goal: MAXIMIZE
+    hyperparameterMetricTag: auc
+    maxTrials: 20
+    maxParallelTrials: 5
+    enableTrialEarlyStopping: True
+    params:
+      - parameterName: first_layer_size
+        type: INTEGER
+        minValue: 2
+        maxValue: 1000
+        scaleType: UNIT_LOG_SCALE
+      - parameterName: num_layers
+        type: INTEGER
+        minValue: 2
+        maxValue: 20
+        scaleType: UNIT_LINEAR_SCALE
+      - parameterName: dnn_dropout
+        type: DOUBLE
+        minValue: 0.001
+        maxValue: 0.8
+        scaleType: UNIT_LINEAR_SCALE
+      - parameterName: learning_rate
+        type: DOUBLE
+        minValue: 0.00001
+        maxValue: 0.3
+        scaleType: UNIT_LOG_SCALE
+      - parameterName: train_batch_size
+        type: DISCRETE
+        discreteValues:
+        - 128
+        - 256
+        - 512
+        - 1024
+        - 2048
+        scaleType: UNIT_LOG_SCALE
+      - parameterName: num_epochs
+        type: DISCRETE
+        discreteValues:
+        - 10
+        - 20
+        - 30
+        - 40
+      - parameterName: dnn_optimizer
+        type: CATEGORICAL
+        categoricalValues:
+        - Adadelta
+        - Adagrad
+        - Adam
+        - GradientDescent
+        - RMSProp
+      - parameterName: estimator_type
+        type: CATEGORICAL
+        categoricalValues:
+        - Classifier
+        - CombinedClassifier
