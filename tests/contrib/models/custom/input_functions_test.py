@@ -21,7 +21,7 @@ import tempfile
 import numpy as np
 import parameterized
 import tensorflow.compat.v1 as tf
-from tensorflow_transform.saved import saved_transform_io
+import tensorflow_transform as tft
 
 from driblet.contrib.models.custom import input_functions
 
@@ -153,7 +153,7 @@ def _create_and_write_test_saved_model(tempdir):
           'test_scaled_feature':
               output_value
       }
-      saved_transform_io.write_saved_transform_from_session(
+      tft.saved.saved_transform_io.write_saved_transform_from_session(
           session, input_dict, output_dict, export_path)
 
 
