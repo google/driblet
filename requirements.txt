@@ -76,7 +76,7 @@ Markdown==3.1.1
 MarkupSafe==1.1.1
 mock==3.0.5
 monotonic==1.5
-numpy==1.16.4
+numpy==1.22.0
 oauth2client==3.0.0
 pandas==0.24.2
 pathlib2==2.3.3
