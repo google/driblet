@@ -20,7 +20,7 @@ _NAME = 'preprocess'
 _VERSION = '0.1'
 _REQUIRED_PACKAGES = [
     'tensorflow-data-validation==0.11.0', 'tensorflow-metadata==0.9.0',
-    'tensorflow-transform==0.11.0', 'protobuf==3.6.1'
+    'tensorflow-transform==0.11.0', 'protobuf==3.18.3'
 ]
 
 if __name__ == '__main__':
