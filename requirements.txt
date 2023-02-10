@@ -61,7 +61,7 @@ hdfs==2.5.2
 httplib2==0.11.3
 idna==2.8
 ipaddress==1.0.22
-ipython==5.8.0
+ipython==8.10.0
 ipython-genutils==0.2.0
 iso8601==0.1.12
 itsdangerous==1.1.0
